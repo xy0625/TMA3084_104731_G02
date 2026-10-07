@@ -1,16 +1,30 @@
 import 'dart:io';
 
 void main() {
-  print("Please input your name:");
-  String? name = stdin.readLineSync();
+  //Show pizza prices
+  print("Pizza Price: Small: 5 USD, Medium: 7 USD, Large: 10 USD");
 
-  print("Please enter your age: ");
-  int age = int.parse(stdin.readLineSync()!);
+  //Ask for pizza size
+  print("Please enter your pizza size (small, medium, or large): ");
+  String? size = stdin.readLineSync();
 
-  print("Please enter your CGPA: ");
-  double cgpa = double.parse(stdin.readLineSync()!);
+  //Ask for quantity
+  print("How many pizzas do you want of pizza_size?");
+  int quantity = int.parse(stdin.readLineSync()!);
 
-  print("Your name is $name");
-  print("Your age is $age");
-  print("Your CGPA is $cgpa");
+  int price;
+
+  if (size == 'small') {
+    price = 5;
+  } else if (size == 'medium') {
+    price = 7;
+  } else if (size == 'large') {
+    price = 10;
+  } else {
+    print("Invalid pizza size!");
+    return;
+  }
+
+  int total = price * quantity;
+  print("Your Total Payment is: $total USD");
 }
